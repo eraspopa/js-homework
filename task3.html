@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//1
+document.write('Задание 1 <br>');
+var number = 2;
+while (number < 100){
+	var count = 0;
+	for (var i =0; i< number; i++)
+	{
+		if (number%i==0) {
+			count++;
+		}
+	}
+	if (count < 3) {
+		document.write(number +'<br>');
+	}
+	number++;
+}
+
+
+//2 
+document.write('Задание 2 <br>');
+var a = -1;
+        do {
+            a++;
+            if (a === 0){
+                document.write(a, "- это ноль <br>");
+            } else if (a % 2 ===0){
+                document.write(a, "- это четное число <br>");
+            } else {
+                document.write(a, "- это нечетное число <br>");
+            }
+        } while (a < 10);
+//3
+document.write('Задание 3 <br>');
+var i;
+        for ( i = 0; i <= 9; document.writeln(i++)){
+           
+        }
+document.write('<br>');
+//4
+document.write('Задание 4 <br>');
+        var arr = [];
+        var end = 0;
+        while (end < 20){
+            end++;
+            arr.push('x');
+            document.write(arr + '<br>');
+        }
+</script>
+</body>
+</html>
