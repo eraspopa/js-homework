@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title> Image Gallery </title>
+<script>
+var images = document.getElementsByTagName("img");
+for (var i = 0; i < images.length; i++) {
+images[i].onclick = changeBigPicture;
+}
+
+function init(){
+var images = document.getElementsByTagName("img");
+for (var i = 0; i < images.length; i++) {
+images[i].onclick = changeBigPicture;
+}
+}
+function changeBigPicture(eventObj){
+var appDiv = document.getElementById("big_picture");
+appDiv.innerHTML = "";
+var eventElement = eventObj.target;
+var imageNameParts = eventElement.id.split("_");
+var src = "img/gallery/big/" + imageNameParts[1] + ".jpg";
+var imageDomElement = document.createElement("img");
+imageDomElement.src = src;
+appDiv.appendChild(imageDomElement);
+imageDomElement.onerror = function(){alert('картинка не существует')};
+}
+window.onload = init;
+</script>
+<style type="text/css">
+	#gallery img{
+		width:100px;
+	}
+	#big_picture img{
+		width:300px;
+	}
+</style>
+</head>
+<body>
+<div id="big_picture"></div>
+<div id="gallery">
+<img id="image_1" src="img/gallery/small/1.jpg">
+<img id="image_2" src="img/gallery/small/2.jpg">
+<img id="image_3" src="img/gallery/small/3.jpg">
+</div>
+</body>
+</html>
