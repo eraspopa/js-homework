@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homework 6</title>
+	<style type="text/css">
+		.wrapper{
+			display: flex;
+			flex-direction: column;
+		}
+		.products{
+			display: flex;
+			border: 1px solid black;
+		}
+		.product{
+			border: 1px solid black;
+			padding: 15px;
+			margin: 15px;
+		}
+		.basket{
+			border: 1px solid black;
+			margin: 15px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="wrapper">
+<div class="products">
+	<div class="product">
+		<span class="name">Product 1 </span>
+		<span class="price">15</span>
+		<form>
+			<input type="button" name="Buy" value="Buy">
+		</form>
+	</div>
+	<div class="product">
+		<span class="name">Product 2 </span>
+		<span class="price">7</span>
+		<form>
+			<input type="button" name="Buy" value="Buy">
+		</form>
+	</div>
+	<div class="product">
+		<span class="name">Product 3 </span>
+		<span class="price">22</span>
+		<form>
+			<input type="button" name="Buy" value="Buy">
+		</form>
+		
+	</div>
+	<div class="product">
+		<span class="name">Product 4 </span>
+		<span class="price">8</span>
+		<form>
+			<input type="button" name="Buy" value="Buy">
+		</form>
+	</div>
+	<div class="product">
+		<span class="name">Product 5 </span>
+		<span class="price">115</span>
+		<form>
+			<input type="button" name="Buy" value="Buy">
+		</form>
+	</div>
+</div>
+<div class="basket">
+	
+	</div>
+</div>
+<script type="text/javascript">
+var buttons = document.getElementsByTagName("input");
+for (var i = 0; i < buttons.length; i++) {
+buttons[i].onclick = test;
+}
+
+var total = document.createElement("span");
+document.getElementsByClassName("basket")[0].appendChild(total);
+var summ = 0;
+
+
+function test(eventObj){
+	var baseContainer = document.getElementsByClassName("basket")[0];
+	var container = document.createElement("div");
+	baseContainer.appendChild(container);
+	var nameValue = this.parentNode.parentNode.children[0].textContent;
+    var priceValue = parseInt(this.parentNode.parentNode.children[1].textContent);
+	var name = document.createElement("span");
+	var price = document.createElement("span");
+	price.className = "item-price";
+	container.appendChild(name);
+	container.appendChild(price);
+	name.innerHTML=nameValue;
+	price.innerHTML = priceValue;
+	summ = summ + priceValue;
+	total.innerHTML = summ;
+
+}
+
+
+	</script>
+</body>
+</html>
