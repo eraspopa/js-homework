@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<style type="text/css">
+		.wrap .row div{
+			
+			margin: 0;
+			padding: 0;
+		}
+		.white{
+			background-color: white;
+		}
+		.row:not(:first-child):not(:last-child):nth-child(even) > div:not(:first-child):not(:last-child):nth-child(odd),
+		.row:not(:first-child):not(:last-child):nth-child(odd) > div:not(:first-child):not(:last-child):nth-child(even) {background-color: black;
+			color:white;
+		}
+	.row div{
+		text-align: center;
+	width: 100px;
+	font-size: 40px;
+	
+	}
+		.row:nth-child(2)> div:not(:first-child):not(:last-child),
+		.row:nth-child(3)> div:not(:first-child):not(:last-child),
+		.row:nth-child(8)> div:not(:first-child):not(:last-child),
+		.row:nth-child(9)> div:not(:first-child):not(:last-child),
+		.row:first-child div,
+		.row:last-child div,
+		.row div:first-child,
+		.row div:last-child{
+			
+	padding: 20px 0px;
+	
+		}
+		.row:nth-child(4)> div:not(:first-child):not(:last-child),
+		.row:nth-child(5)> div:not(:first-child):not(:last-child),
+		.row:nth-child(6)> div:not(:first-child):not(:last-child),
+		.row:nth-child(7)> div:not(:first-child):not(:last-child){
+			
+			height: 100px;
+		}
+		.wrap{
+			display: flex;
+			flex-direction: column;
+		}
+		.row{
+			display: flex;
+		}
+	</style>
+	<body>
+		<script>
+		function chessboard() {
+		var newBoard = document.createElement( 'div' ),
+		lets = [ '','A','B','C','D','E','F','G','H','' ],
+		blackFigs1 = [ '8','&#9820;','&#9822;','&#9821;','&#9819;','&#9818;','&#9821;','&#9822;','&#9820;','8' ],
+		whiteFigs1 = [ '1','&#9814;','&#9816;','&#9815;','&#9813;','&#9812;','&#9821;','&#9815;','&#9814;','1' ],
+		blackFigs2 = [ '7','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','7' ],
+		whiteFigs2 = [ '2','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','2' ];
+		for ( var i = 0, a = 9; i < 10, a >= 0; i++, a-- ) {
+		var newRow = newBoard.appendChild(document.createElement('div'));
+		newRow.className="row";
+		for ( var j = 0; j < 10; j++ ) {
+		var newCell = newRow.appendChild(document.createElement('div'));
+		newCell.className="white";
+		switch (i) {
+		case 0:
+		newCell.innerText = lets[ j ];
+		break;
+		case 1:
+		newCell.innerHTML = blackFigs1[ j ];
+		break;
+		case 2:
+		newCell.innerHTML = blackFigs2[ j ];
+		break;
+		case 7:
+		newCell.innerHTML = whiteFigs2[ j ];
+		break;
+		case 8:
+		newCell.innerHTML = whiteFigs1[ j ];
+		break;
+		case 9:
+		newCell.innerText = lets[ j ];
+		break;
+		default:
+		if ( j === 0 || j === 9 ) {
+		newCell.innerHTML = a;
+		}
+		break;
+		}
+		}
+		}
+		newBoard.className="wrap";
+		
+		
+		document.body.appendChild( newBoard );
+		};
+		chessboard();
+		</script>
+	</body>
+</html>
